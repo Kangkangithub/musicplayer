@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/music_bg">
+    android:background="@drawable/music_bg"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/ll_nav"
@@ -30,6 +31,39 @@
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_content_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_nav"
+        android:layout_above="@id/rl_control_panel">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 歌词半透明浮层，点击专辑图标时显示/隐藏 -->
+        <ScrollView
+            android:id="@+id/sv_lyrics"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC000000"
+            android:visibility="gone"
+            android:padding="24dp"
+            android:clickable="true">
+            <TextView
+                android:id="@+id/tv_lyrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#CCFFFFFF"
+                android:textSize="18sp"
+                android:lineSpacingExtra="10dp"
+                android:gravity="center"
+                android:text="暂无歌词" />
+        </ScrollView>
+    </FrameLayout>
 
     <RelativeLayout
         android:id="@+id/rl_control_panel"
@@ -101,42 +135,61 @@
             android:paddingLeft="120dp"
             android:paddingRight="10dp">
             <Button
+                android:id="@+id/btn_prev"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_selector"
+                android:text="上一首"
+                android:textSize="10sp" />
+            <Button
                 android:id="@+id/btn_play"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
-                android:layout_margin="4dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg_selector"
                 android:text="播放"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
             <Button
                 android:id="@+id/btn_pause"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
-                android:layout_margin="4dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg_selector"
                 android:text="暂停"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
             <Button
                 android:id="@+id/btn_continue_play"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
-                android:layout_margin="4dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg_selector"
                 android:text="继续"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_bg_selector"
+                android:text="下一首"
+                android:textSize="10sp" />
             <Button
                 android:id="@+id/btn_exit"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
-                android:layout_margin="4dp"
+                android:layout_margin="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_bg_selector"
                 android:text="退出"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
         </LinearLayout>
+
         <ImageView
             android:id="@+id/iv_music"
             android:layout_width="100dp"
@@ -144,14 +197,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="35dp"
             android:layout_marginBottom="50dp"
-            android:src="@drawable/img_music" />
+            android:src="@drawable/img_music"
+            android:clickable="true"
+            android:focusable="true" />
     </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/ll_nav"
-        android:layout_above="@id/rl_control_panel" />
 
 </RelativeLayout>

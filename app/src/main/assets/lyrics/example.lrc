@@ -1,0 +1,9 @@
+[00:00.00]★ Example Song ★
+[00:05.00]This is a sample song
+[00:10.00]Lyrics files are stored as .lrc
+[00:15.00]in the assets/lyrics/ folder
+[00:20.00]Filename matches the song in raw/
+[00:25.00]Format: [mm:ss.ms]lyric text
+[00:30.00]One line per timestamp
+[00:35.00]Lyrics auto-highlight during playback
+[00:40.00]Enjoy your music journey!
